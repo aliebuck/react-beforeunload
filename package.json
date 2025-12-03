@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jacobbuck/react-beforeunload.git"
+    "url": "git+https://github.com/aliebuck/react-beforeunload.git"
   },
   "keywords": [
     "beforeunload",
@@ -38,12 +38,12 @@
     "unload",
     "window"
   ],
-  "author": "Jacob Buck <buck.jacob@gmail.com>",
+  "author": "Alie Buck <830470+aliebuck@users.noreply.github.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jacobbuck/react-beforeunload/issues"
+    "url": "https://github.com/aliebuck/react-beforeunload/issues"
   },
-  "homepage": "https://github.com/jacobbuck/react-beforeunload#readme",
+  "homepage": "https://github.com/aliebuck/react-beforeunload#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",

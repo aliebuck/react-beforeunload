@@ -91,7 +91,3 @@ With `Beforeunload` component:
 ```jsx
 <Beforeunload onBeforeunload={() => 'You’ll lose your data!'} />
 ```
-
-## Requirements
-
-Requires a minimum of React version 16.8.0. If you're on an older version of React, then checkout [v1](https://github.com/jacobbuck/react-beforeunload/tree/v1).
