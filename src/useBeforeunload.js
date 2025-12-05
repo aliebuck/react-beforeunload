@@ -15,7 +15,9 @@ import { useEffect, useRef } from "react";
  */
 export const useBeforeunload = (handler) => {
   const handlerRef = useRef(handler);
-  handlerRef.current = handler;
+  useEffect(() => {
+    handlerRef.current = handler;
+  });
 
   const enabled = typeof handler === "function";
 
