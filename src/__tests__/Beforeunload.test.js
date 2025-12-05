@@ -1,10 +1,10 @@
-import { jest } from '@jest/globals';
+import { expect, test, vi } from 'vitest';
 import { createElement } from 'react';
 import { act, render } from '@testing-library/react';
 import { Beforeunload } from '..';
 
 test('passes onBeforeunload prop to useBeforeunload hook', () => {
-  const handler = jest.fn();
+  const handler = vi.fn();
   render(createElement(Beforeunload, { onBeforeunload: handler }));
   const event = new Event('beforeunload', { cancelable: true });
   act(() => {

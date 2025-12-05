@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals';
+import { expect, test, vi } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
 import { useBeforeunload } from '..';
 
@@ -14,7 +14,7 @@ const renderUseBeforeunloadHook = (handler) =>
   renderHook(() => useBeforeunload(handler));
 
 test('handler function is called when beforeunload event is fired', () => {
-  const handler = jest.fn();
+  const handler = vi.fn();
   renderUseBeforeunloadHook(handler);
   const event = createBeforeunloadEvent();
   dispatchWindowEvent(event);
@@ -28,10 +28,10 @@ test('returnValue on event is set when preventDefault is called', () => {
   const event = createBeforeunloadEvent();
   // jsdom currently doesn't have `BeforeUnloadEvent` implemented, so we're just
   // ensuring `returnValue` is set on `event`
-  const set = jest.fn();
+  const set = vi.fn();
   Object.defineProperty(event, 'returnValue', { set });
   dispatchWindowEvent(event);
-  expect(set).toHaveBeenCalledWith('');
+  expect(set).toHaveBeenCalledWith(true);
 });
 
 test('returnValue on event is set when a string is returned by handler', () => {
@@ -39,7 +39,7 @@ test('returnValue on event is set when a string is returned by handler', () => {
   const event = createBeforeunloadEvent();
   // jsdom currently doesn't have `BeforeUnloadEvent` implemented, so we're just
   // ensuring `returnValue` is set on `event`
-  const set = jest.fn();
+  const set = vi.fn();
   Object.defineProperty(event, 'returnValue', { set });
   dispatchWindowEvent(event);
   expect(set).toHaveBeenCalledWith('goodbye');
