@@ -9,7 +9,7 @@ import globals from "globals";
 export default defineConfig([
   globalIgnores(["coverage", "dist"]),
   js.configs.recommended,
-  pluginJsdoc.configs['flat/recommended'],
+  pluginJsdoc.configs["flat/recommended"],
   pluginReactHooks.configs.flat["recommended-latest"],
   configPrettier,
   {
