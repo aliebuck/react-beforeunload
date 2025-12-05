@@ -20,7 +20,7 @@ useBeforeunload(handler);
 ##### Simple
 
 ```jsx
-import { useBeforeunload } from 'react-beforeunload';
+import { useBeforeunload } from "react-beforeunload";
 
 const Example = (props) => {
   useBeforeunload((event) => event.preventDefault());
@@ -31,14 +31,14 @@ const Example = (props) => {
 ##### Conditional
 
 ```jsx
-import { useBeforeunload } from 'react-beforeunload';
+import { useBeforeunload } from "react-beforeunload";
 
 const Example = (props) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
-  useBeforeunload(value !== '' ? (event) => event.preventDefault() : null);
+  useBeforeunload(value !== "" ? (event) => event.preventDefault() : null);
   // or
-  useBeforeunload(value !== '' && () => true);
+  useBeforeunload(value !== "" && () => true);
 
   ...
 };
@@ -57,15 +57,15 @@ const Example = (props) => {
 #### Example
 
 ```jsx
-import { Beforeunload } from 'react-beforeunload';
+import { Beforeunload } from "react-beforeunload";
 
 class Example extends React.Component {
-  state = { value: '' };
+  state = { value: "" };
 
   render() {
     return (
       <>
-        {this.state.value !== '' && (
+        {this.state.value !== "" && (
           <Beforeunload onBeforeunload={(event) => event.preventDefault()} />
         )}
         <input
@@ -97,11 +97,11 @@ To display a custom message in the triggered dialog box, return a string in the 
 With `useBeforeunload` hook:
 
 ```jsx
-useBeforeunload(() => 'You’ll lose your data!');
+useBeforeunload(() => "You’ll lose your data!");
 ```
 
 With `Beforeunload` component:
 
 ```jsx
-<Beforeunload onBeforeunload={() => 'You’ll lose your data!'} />
+<Beforeunload onBeforeunload={() => "You’ll lose your data!"} />
 ```

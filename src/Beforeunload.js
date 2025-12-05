@@ -1,4 +1,4 @@
-import { useBeforeunload } from './useBeforeunload';
+import { useBeforeunload } from "./useBeforeunload";
 
 export const Beforeunload = ({ children = null, onBeforeunload }) => {
   useBeforeunload(onBeforeunload);

@@ -16,9 +16,6 @@
     "sourceType": "module"
   },
   "plugins": ["jsdoc", "prettier", "react-hooks", "vitest"],
-  "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }]
-  },
   "settings": {
     "react": { "version": "16.8.0" }
   }
