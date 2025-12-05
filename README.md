@@ -13,8 +13,22 @@ useBeforeunload(handler);
 #### Parameters
 
 - `handler` optional function to be called with `BeforeUnloadEvent` when `beforeunload` event is fired.
+  Passing a non-function value will disable the event listener.
 
 #### Example
+
+##### Simple
+
+```jsx
+import { useBeforeunload } from 'react-beforeunload';
+
+const Example = (props) => {
+  useBeforeunload((event) => event.preventDefault());
+  ...
+};
+```
+
+##### Conditional
 
 ```jsx
 import { useBeforeunload } from 'react-beforeunload';
@@ -23,10 +37,10 @@ const Example = (props) => {
   const [value, setValue] = useState('');
 
   useBeforeunload(value !== '' ? (event) => event.preventDefault() : null);
+  // or
+  useBeforeunload(value !== '' && () => true);
 
-  return (
-    <input onChange={(event) => setValue(event.target.value)} value={value} />
-  );
+  ...
 };
 ```
 
