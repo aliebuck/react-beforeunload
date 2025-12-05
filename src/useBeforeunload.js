@@ -3,13 +3,13 @@ import { useEffect, useRef } from "react";
 /**
  * @callback BeforeUnloadHandler
  * @param {BeforeUnloadEvent} event
- * @returns {*}
+ * @returns {boolean|string|undefined} Truthy values trigger the confirmation dialog.
  */
 
 /**
  * React hook that listens to `beforeunload` window event.
  * @function
- * @param {BeforeUnloadHandler | false | null | undefined} handler - Event listener callback:
+ * @param {BeforeUnloadHandler|false|null|undefined} handler - Event listener callback:
  *   Called on `beforeunload` window event. It activates a confirmation dialog
  *   when `event.preventDefault()` is called or a truthy value is returned.
  */
