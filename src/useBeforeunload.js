@@ -1,39 +1,38 @@
 import { useEffect, useRef } from 'react';
 
 /**
+ * @callback BeforeUnloadHandler
+ * @param {BeforeUnloadEvent} event
+ * @returns {*}
+ */
+
+/**
  * React hook that listens to `beforeunload` window event.
  * @function
- * @param {?function} handler - Event listener
- *   called on `beforeunload` window event. It activates a confirmation dialog
- *   when `event.preventDefault()` is called or a string is returned.
+ * @param {BeforeUnloadHandler | false | null | undefined} handler - Event listener callback:
+ *   Called on `beforeunload` window event. It activates a confirmation dialog
+ *   when `event.preventDefault()` is called or a truthy value is returned.
  */
 export const useBeforeunload = (handler) => {
-  const enabled = typeof handler === 'function';
-
-  // Persist handler in ref
   const handlerRef = useRef(handler);
-  useEffect(() => {
-    handlerRef.current = handler;
-  });
+  handlerRef.current = handler;
+
+  const enabled = typeof handler === 'function';
 
   useEffect(() => {
     if (enabled) {
       const listener = (event) => {
         const returnValue = handlerRef.current(event);
-        /** @see https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes */
+        /** @see https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event */
         if (returnValue || typeof returnValue === 'string') {
           event.preventDefault();
-          return (event.returnValue = returnValue);
-        }
-        if (event.defaultPrevented) {
-          return (event.returnValue = true);
+          event.returnValue = returnValue;
+        } else if (event.defaultPrevented) {
+          event.returnValue = true;
         }
       };
-
       window.addEventListener('beforeunload', listener);
-      return () => {
-        window.removeEventListener('beforeunload', listener);
-      };
+      return () => window.removeEventListener('beforeunload', listener);
     }
   }, [enabled]);
 };
