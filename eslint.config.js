@@ -1,9 +1,9 @@
 import js from "@eslint/js";
+import pluginVitest from "@vitest/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
 import configPrettier from "eslint-config-prettier/flat";
 import pluginJsdoc from "eslint-plugin-jsdoc";
 import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginVitest from "eslint-plugin-vitest";
 import globals from "globals";
 
 export default defineConfig([
