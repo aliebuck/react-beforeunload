@@ -2,32 +2,6 @@
   "name": "react-beforeunload",
   "version": "2.7.0",
   "description": "React component and hook which listens to the beforeunload window event.",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/react-beforeunload.cjs",
-  "module": "./dist/react-beforeunload.js",
-  "exports": {
-    ".": {
-      "import": "./dist/react-beforeunload.js",
-      "require": "./dist/react-beforeunload.cjs"
-    }
-  },
-  "sideEffects": false,
-  "scripts": {
-    "build": "vite build",
-    "coverage": "vitest run --coverage",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "prepare": "npm run build && husky",
-    "preversion": "npm run lint && npm run test",
-    "test": "vitest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aliebuck/react-beforeunload.git"
-  },
   "keywords": [
     "beforeunload",
     "component",
@@ -38,12 +12,38 @@
     "unload",
     "window"
   ],
-  "author": "Alie Buck <830470+aliebuck@users.noreply.github.com>",
-  "license": "MIT",
+  "homepage": "https://github.com/aliebuck/react-beforeunload#readme",
   "bugs": {
     "url": "https://github.com/aliebuck/react-beforeunload/issues"
   },
-  "homepage": "https://github.com/aliebuck/react-beforeunload#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliebuck/react-beforeunload.git"
+  },
+  "license": "MIT",
+  "author": "Alie Buck <830470+aliebuck@users.noreply.github.com>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/react-beforeunload.js",
+      "require": "./dist/react-beforeunload.cjs"
+    }
+  },
+  "main": "./dist/react-beforeunload.cjs",
+  "module": "./dist/react-beforeunload.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "prepare": "npm run build && husky",
+    "test": "vitest",
+    "preversion": "npm run lint && npm run test"
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
